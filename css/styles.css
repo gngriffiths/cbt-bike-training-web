@@ -360,7 +360,7 @@ p {
 /* ── Hero ───────────────────────────────────────────────────── */
 .hero {
   position: relative;
-  background: url("/public/images/Home/Hero.png") center / cover no-repeat;
+  background: url("../public/images/Home/Hero.png") center / cover no-repeat;
   min-height: 620px;
   display: flex;
   align-items: center;
