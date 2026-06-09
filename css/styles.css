@@ -1149,9 +1149,14 @@ p {
 }
 .footer-brand .f-logo {
   display: flex;
-  align-items: center;
-  gap: 9px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
   margin-bottom: 14px;
+}
+.footer-brand .f-logo img {
+  width: 100px;
+  height: 100px;
 }
 .footer-brand .f-logo-badge {
   width: 34px;
