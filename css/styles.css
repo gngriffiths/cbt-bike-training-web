@@ -241,7 +241,7 @@ p {
   justify-content: center;
   width: 38px;
   height: 38px;
-  background: var(--orange);
+  background: transparent;
   border-radius: var(--r-md);
   color: var(--white);
   font-size: 0.7rem;
@@ -250,6 +250,12 @@ p {
   flex-shrink: 0;
   line-height: 1;
   text-align: center;
+}
+.navbar-logo .logo-badge img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
 }
 .navbar-logo .logo-name {
   color: var(--navy);

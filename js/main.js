@@ -52,6 +52,13 @@
   });
 })();
 
+/* ── Auto Update Copyright Year ─────────────────────────────── */
+(function () {
+  var yearEl = document.getElementById('current-year');
+  if (!yearEl) return;
+  yearEl.textContent = new Date().getFullYear();
+})();
+
 /* ── Scroll Fade-Up Animations ──────────────────────────────── */
 (function () {
   if (!('IntersectionObserver' in window)) return;
