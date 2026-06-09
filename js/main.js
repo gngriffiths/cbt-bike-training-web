@@ -34,6 +34,45 @@
   });
 })();
 
+/* ── Nav Dropdown Toggle ────────────────────────────────────── */
+(function () {
+  var dropdowns = document.querySelectorAll('.nav-dropdown');
+  if (!dropdowns.length) return;
+
+  dropdowns.forEach(function (dd) {
+    var toggle = dd.querySelector('.nav-dropdown-toggle');
+    if (!toggle) return;
+    toggle.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var isOpen = dd.classList.contains('open');
+      dropdowns.forEach(function (d) {
+        d.classList.remove('open');
+        var t = d.querySelector('.nav-dropdown-toggle');
+        if (t) t.setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        dd.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+    });
+    // Close when a dropdown link is clicked
+    dd.querySelectorAll('.nav-dropdown-menu a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        dd.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  });
+
+  document.addEventListener('click', function () {
+    dropdowns.forEach(function (d) {
+      d.classList.remove('open');
+      var t = d.querySelector('.nav-dropdown-toggle');
+      if (t) t.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+
 /* ── Navbar Scroll Shadow ───────────────────────────────────── */
 (function () {
   var navbar = document.querySelector('.navbar');
@@ -49,6 +88,13 @@
   document.querySelectorAll('.navbar-nav a, .mobile-menu a').forEach(function (a) {
     var href = (a.getAttribute('href') || '').replace(/\/$/, '') || '/';
     if (href === path) a.classList.add('active');
+  });
+  // Mark Courses dropdown toggle active when on a courses page
+  document.querySelectorAll('.nav-dropdown').forEach(function (dd) {
+    if (dd.querySelector('.nav-dropdown-menu a.active')) {
+      var toggle = dd.querySelector('.nav-dropdown-toggle');
+      if (toggle) toggle.classList.add('active');
+    }
   });
 })();
 
